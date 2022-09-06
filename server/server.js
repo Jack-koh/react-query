@@ -6,12 +6,13 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-const limit = 20;
-const offset = 20;
-
 const todos = Array.from(new Array(100), (v, i) => ({
   id: i,
   title: "mock data" + i,
+  data1: (Math.random() * 10).toFixed(1),
+  data2: (Math.random() * 10).toFixed(1),
+  data3: (Math.random() * 10).toFixed(1),
+  data4: (Math.random() * 10).toFixed(1),
 }));
 
 app.get("/", function (req, res) {

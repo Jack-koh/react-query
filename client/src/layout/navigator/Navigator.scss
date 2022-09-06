@@ -1,0 +1,17 @@
+#nativator-field {
+  display: flex;
+
+  nav#nav-layout {
+    width: 300px;
+    height: 100vh;
+    background-color: var(--bg);
+
+    ul {
+      li {
+        a {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
