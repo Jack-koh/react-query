@@ -15,8 +15,6 @@ function Comp() {
 
   const data = query.data?.data || [];
 
-  console.log(data);
-
   return (
     <div>
       <Table />
