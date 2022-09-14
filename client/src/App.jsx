@@ -4,9 +4,7 @@ import Navigator from "./layout/navigator/Navigator";
 import "./App.css";
 
 import Pagination from "./components/pagination/Pagination";
-
 function App() {
-  // return <Todos />;
   return useRoutes([
     {
       path: "/",

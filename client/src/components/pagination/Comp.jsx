@@ -3,21 +3,32 @@ import axios from "axios";
 import { useQuery } from "react-query";
 import Table from "../table/Table";
 
-const getTodos = async () => {
-  const res = await axios.get("/todos", { params: { offset: 0, limit: 20 } });
-  return res;
+const getTodos = (params) => async () => {
+  const res = await axios.get("/todos", { params });
+  return res.data;
 };
 
 function Comp() {
-  const query = useQuery("todos", getTodos, {
-    // onSettled: true,
-  });
+  const [page, setPage] = React.useState({ offset: 0, limit: 10 });
+  const { data, isLoading, isFetching, isError, error, refetch, remove } =
+    useQuery(["todos", page], getTodos(page), {
+      keepPreviousData: true, // 이전데이터 유지하는것
+    });
+  if (isLoading) return <h2>Loading...</h2>;
 
-  const data = query.data?.data || [];
+  console.log({ isLoading, isFetching, isError, error, data });
 
   return (
     <div>
-      <Table />
+      <button
+        onClick={() => {
+          // setPage({ offset: 0, limit: 5 });
+          refetch();
+        }}
+      >
+        refetch
+      </button>
+      <Table data={data ?? []} />
     </div>
   );
 }

@@ -3,9 +3,9 @@ import Comp from "./Comp";
 
 function Pgination() {
   return (
-    <Suspense fallback={<div>로딩중 입니다...</div>}>
-      <Comp />
-    </Suspense>
+    // <Suspense fallback={<div>로딩중 입니다...</div>}>
+    <Comp />
+    // </Suspense>
   );
 }
 
